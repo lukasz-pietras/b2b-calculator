@@ -1,0 +1,298 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalkulator B2B | Forma opodatkowania</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="panel hero">
+        <div>
+          <p class="eyebrow">B2B w Polsce</p>
+          <h1>Sprawdź, która forma opodatkowania opłaca się najbardziej</h1>
+          <p class="lead">
+            Kalkulator na podstawie danych z serwisu inFakt pozwala szybko
+            porównać skalę podatkową, podatek liniowy oraz ryczałt. Uzupełnij
+            parametry swojej działalności i zobacz sugerowaną formę.
+          </p>
+        </div>
+        <div class="hero-insights">
+          <div class="metric-card">
+            <p>Średnia oszczędność</p>
+            <strong data-hero-saving>0 zł / rok</strong>
+            <span>vs. mniej korzystna opcja</span>
+          </div>
+          <div class="metric-card">
+            <p>Aktualizacje 2024</p>
+            <strong>Składki + progi</strong>
+            <span>Uwzględniamy kwotę wolną 30 000 zł</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="panel panel-form">
+          <div class="section">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Parametry finansowe</p>
+                <h2>Przychody i koszty</h2>
+              </div>
+              <button type="button" class="ghost" data-fill-demo>
+                Wypełnij przykładowo
+              </button>
+            </div>
+            <form id="calculator-form" class="form-grid">
+              <label class="field">
+                <span>Roczne przychody (PLN)</span>
+                <input
+                  type="number"
+                  inputmode="decimal"
+                  name="revenue"
+                  min="0"
+                  step="1000"
+                  value="180000"
+                  required
+                />
+              </label>
+              <label class="field">
+                <span>Roczne koszty podatkowe (PLN)</span>
+                <input
+                  type="number"
+                  inputmode="decimal"
+                  name="costs"
+                  min="0"
+                  step="1000"
+                  value="36000"
+                />
+              </label>
+              <label class="field">
+                <span>Miesięczne składki społeczne ZUS (PLN)</span>
+                <input
+                  type="number"
+                  inputmode="decimal"
+                  name="social"
+                  min="0"
+                  step="10"
+                  value="1600"
+                />
+              </label>
+              <label class="field">
+                <span>Stawka ryczałtu</span>
+                <select name="lumpRate">
+                  <option value="0.17">17% (IT / wolne zawody)</option>
+                  <option value="0.15">15% (usługi B2B)</option>
+                  <option value="0.12" selected>12% (programiści)</option>
+                  <option value="0.085">8.5% (usługi)</option>
+                  <option value="0.055">5.5% (produkcja)</option>
+                </select>
+              </label>
+              <div class="field stack">
+                <span>Założenia podatkowe</span>
+                <div class="inline-fields">
+                  <label>
+                    <small>Kwota wolna (skala)</small>
+                    <input
+                      type="number"
+                      name="allowance"
+                      value="30000"
+                      min="0"
+                      step="1000"
+                    />
+                  </label>
+                  <label>
+                    <small>Próg 32% (skala)</small>
+                    <input
+                      type="number"
+                      name="threshold"
+                      value="120000"
+                      min="0"
+                      step="1000"
+                    />
+                  </label>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="section">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Składka zdrowotna</p>
+                <h2>Założenia kalkulatora</h2>
+              </div>
+            </div>
+            <ul class="assumptions">
+              <li>
+                Skala podatkowa: 12% / 32%, zdrowotne 9% dochodu (min.
+                381,78 zł/mc).
+              </li>
+              <li>
+                Podatek liniowy: 19% stawki i zdrowotne 4,9% dochodu (min.
+                381,78 zł/mc).
+              </li>
+              <li>
+                Ryczałt: składka zdrowotna wg progów przychodu (419,46 / 699,11 /
+                1 258,39 zł/mc).
+              </li>
+              <li>
+                Składki społeczne podajesz ręcznie – odejmujemy je z każdej
+                metody.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="panel panel-results">
+          <div class="highlight" data-best-card>
+            <p class="eyebrow">Rekomendacja</p>
+            <div class="highlight-header">
+              <div>
+                <h2 data-best-name>—</h2>
+                <p>Najwyższy dochód netto według podanych danych.</p>
+              </div>
+              <span class="chip" data-best-diff>—</span>
+            </div>
+            <div class="highlight-value">
+              <span>Netto miesięcznie</span>
+              <strong data-best-net>—</strong>
+            </div>
+            <p class="subtle" data-best-note>
+              Wypełnij formularz po lewej stronie, aby zobaczyć wynik.
+            </p>
+          </div>
+
+          <div class="methods-grid">
+            <article class="method-card" data-method="scale">
+              <div class="method-card__header">
+                <div>
+                  <p class="eyebrow">Skala podatkowa</p>
+                  <h3>12% / 32%</h3>
+                </div>
+                <span class="chip" data-method-net>—</span>
+              </div>
+              <dl>
+                <div>
+                  <dt>Dochód netto / mc</dt>
+                  <dd data-method-net>—</dd>
+                </div>
+                <div>
+                  <dt>Podatek roczny</dt>
+                  <dd data-method-tax>—</dd>
+                </div>
+                <div>
+                  <dt>Składka zdrowotna</dt>
+                  <dd data-method-health>—</dd>
+                </div>
+                <div>
+                  <dt>Efektywne obciążenie</dt>
+                  <dd data-method-rate>—</dd>
+                </div>
+              </dl>
+              <p class="method-note">
+                Najkorzystniejsza przy wysokich kosztach i korzystaniu z kwoty
+                wolnej.
+              </p>
+            </article>
+
+            <article class="method-card" data-method="linear">
+              <div class="method-card__header">
+                <div>
+                  <p class="eyebrow">Podatek liniowy</p>
+                  <h3>19%</h3>
+                </div>
+                <span class="chip" data-method-net>—</span>
+              </div>
+              <dl>
+                <div>
+                  <dt>Dochód netto / mc</dt>
+                  <dd data-method-net>—</dd>
+                </div>
+                <div>
+                  <dt>Podatek roczny</dt>
+                  <dd data-method-tax>—</dd>
+                </div>
+                <div>
+                  <dt>Składka zdrowotna</dt>
+                  <dd data-method-health>—</dd>
+                </div>
+                <div>
+                  <dt>Efektywne obciążenie</dt>
+                  <dd data-method-rate>—</dd>
+                </div>
+              </dl>
+              <p class="method-note">
+                Sprawdza się przy wysokich dochodach i niskich kosztach.
+              </p>
+            </article>
+
+            <article class="method-card" data-method="lump">
+              <div class="method-card__header">
+                <div>
+                  <p class="eyebrow">Ryczałt od przychodów</p>
+                  <h3 data-ryczalt-label>12%</h3>
+                </div>
+                <span class="chip" data-method-net>—</span>
+              </div>
+              <dl>
+                <div>
+                  <dt>Dochód netto / mc</dt>
+                  <dd data-method-net>—</dd>
+                </div>
+                <div>
+                  <dt>Podatek roczny</dt>
+                  <dd data-method-tax>—</dd>
+                </div>
+                <div>
+                  <dt>Składka zdrowotna</dt>
+                  <dd data-method-health>—</dd>
+                </div>
+                <div>
+                  <dt>Efektywne obciążenie</dt>
+                  <dd data-method-rate>—</dd>
+                </div>
+              </dl>
+              <p class="method-note">
+                Korzystny gdy masz bardzo niskie koszty i stałą marżę.
+              </p>
+            </article>
+          </div>
+
+          <div class="panel insights">
+            <div>
+              <p class="eyebrow">Jak czytać wyniki?</p>
+              <h3>Dochód netto = przychód - podatki - składki</h3>
+              <p>
+                Wynik pokazuje ile środków zostaje do dyspozycji po opłaceniu
+                składek społecznych, zdrowotnych oraz podatku dochodowego w danej
+                formie. To uproszczony model – w realnym rozliczeniu mogą pojawić
+                się dodatkowe ulgi, amortyzacja czy wspólne rozliczenie z
+                małżonkiem.
+              </p>
+            </div>
+            <ul>
+              <li>Różnice między metodami liczymy w ujęciu rocznym.</li>
+              <li>
+                Możesz modyfikować kwotę wolną i próg 32% jeśli ustawodawca je
+                zmieni.
+              </li>
+              <li>
+                Wynikiem jest sugerowana forma – ostateczna decyzja wymaga
+                konsultacji z księgowością.
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
