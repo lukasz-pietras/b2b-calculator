@@ -86,6 +86,20 @@
                 />
               </label>
               <label class="field">
+                <span>Ulgi w skladkach ZUS</span>
+                <select name="relief">
+                  <option value="standard" selected>Pelny ZUS (domyslnie)</option>
+                  <option value="ulgaStart">Ulga na start (pierwsze 6 mies.)</option>
+                  <option value="preferential">Preferencyjny ZUS (24 mies.)</option>
+                  <option value="malyZusPlus">Maly ZUS Plus</option>
+                  <option value="custom">Wlasna kwota / niestandardowa</option>
+                </select>
+                <p class="hint" data-relief-note>
+                  Przyjmujemy pelne skladki spoleczne (ok. 1600 zl/mc). Wybierz ulge, aby
+                  podmienic kwoty automatycznie.
+                </p>
+              </label>
+              <label class="field">
                 <span>Stawka ryczałtu</span>
                 <select name="lumpRate">
                   <option value="0.17">17% (IT / wolne zawody)</option>
@@ -293,6 +307,6 @@
         </section>
       </main>
     </div>
-    <script type="module" src="./app.js"></script>
+    <script src="./app.js"></script>
   </body>
 </html>
